@@ -26,7 +26,7 @@ class BasketballApplicationTests {
 
 	
 	@Test
-	void example() throws IOException {
+	void createPlayer_findAllPlayers_deletePlayerTest() throws IOException {
 		//createPlayer - mutation
 		GraphQLResponse createResponse = testTemplate.postForResource("create-player.graphql");
 		assertTrue(createResponse.isOk());
@@ -58,46 +58,5 @@ class BasketballApplicationTests {
 		
 		assertTrue(b);
 	}
-
-	
-	
-	/*@Test
-	void playerCreateTest() throws IOException {
-		GraphQLResponse response = testTemplate.postForResource("create-player.graphql");
-		assertTrue(response.isOk());
-
-		String id = response.get("$.data.createPlayer.id");
-		String name = response.get("$.data.createPlayer.name");
-		String surname = response.get("$.data.createPlayer.surname");
-		String position = response.get("$.data.createPlayer.position");
-		
-		assertEquals(1L, Long.parseLong(id));
-		assertEquals("taha" ,name);
-		assertEquals("filiz", surname);
-		assertEquals(Position.C.name(), position);
-	}
-	
-	@Test
-	void listPlayersTest() throws IOException {
-		GraphQLResponse response = testTemplate.postForResource("find-all-players.graphql");
-		System.out.println( response.context().json().toString());
-		assertEquals(1L, Long.parseLong(response.get("$.data.findAllPlayers.[0].id")));
-		assertEquals("taha", response.get("$.data.findAllPlayers.[0].name"));
-		assertEquals("filiz", response.get("$.data.findAllPlayers.[0].surname"));
-		assertEquals(Position.C.name(), response.get("$.data.findAllPlayers.[0].position"));
-	}
-	
-	@Test
-	void deletePlayerTest() throws IOException{
-		GraphQLResponse response = testTemplate.postForResource("player-delete.graphql");
-		boolean b = response.isOk();
-		assertTrue(b);
-	}*/
-	
-	
-	
-	
-
-
 }
 
