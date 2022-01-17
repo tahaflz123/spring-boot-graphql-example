@@ -1,0 +1,3 @@
+query{
+ findAllPlayers{id,name,surname,position}
+}
